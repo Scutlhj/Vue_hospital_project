@@ -11,16 +11,19 @@
                 <el-form :inline="true" label-width="80px" class="order_form">
                     <el-form-item label="就诊人">
                         <el-select placeholder="请选择就诊人" v-model="selectedId" @change="getOrderPager()">
-                            <el-option v-for="(item,index) in patientList" :key="item.id" :label="item.name" :value="item.id" />
+                            <el-option v-for="(item, index) in patientList" :key="item.id" :label="item.name"
+                                :value="item.id" />
                         </el-select>
                     </el-form-item>
                     <el-form-item label="订单状态">
                         <el-select placeholder="请选择订单状态" v-model="selectedStatus" @change="getOrderPager()">
-                            <el-option v-for="(item,index) in statusList" :key="item.status" :label="item.comment" :value="item.status"/>
+                            <el-option v-for="(item, index) in statusList" :key="item.status" :label="item.comment"
+                                :value="item.status" />
                         </el-select>
                     </el-form-item>
                     <el-form-item>
-                        <el-button size="default" @click="reset" :disabled="!selectedId&&!selectedStatus" class="resetbtn">重置</el-button>
+                        <el-button size="default" @click="reset" :disabled="!selectedId && !Number.isInteger(selectedStatus)"
+                            class="resetbtn">重置</el-button>
                     </el-form-item>
                 </el-form>
                 <el-table :data="orderPager" border class="order_table">
@@ -77,18 +80,18 @@ const getOrderPager = async (pager = 1) => {
     }
 }
 const getAllPatient = async () => {
-    let result:PatientResponseData = await reqGetAllPatient()
-    if(result.code===200){
+    let result: PatientResponseData = await reqGetAllPatient()
+    if (result.code === 200) {
         patientList.value = result.data
-    }else{
+    } else {
         ElMessage.error('获取就诊人数据失败')
     }
 }
 const getAllStatus = async () => {
-    let result:StatusResponseData = await reqGetOrderStatusList()
-    if(result.code===200){
+    let result: StatusResponseData = await reqGetOrderStatusList()
+    if (result.code === 200) {
         statusList.value = result.data
-    }else{
+    } else {
         ElMessage.error('获取订单状态数据失败')
     }
 }
@@ -100,7 +103,7 @@ const goDetail = (orderId: number) => {
         }
     })
 }
-const reset = ()=>{
+const reset = () => {
     selectedId.value = ''
     selectedStatus.value = ''
     getOrderPager()
@@ -122,7 +125,8 @@ onMounted(() => {
             font-size: 18px;
             font-weight: 900;
         }
-        .order_form{
+
+        .order_form {
             // :deep(.el-form-item:nth-child(3)){
             //     margin-right: 0;
             // }
@@ -130,6 +134,7 @@ onMounted(() => {
             //     margin-left: 212px;
             // }
         }
+
         .order_table {
             margin: 10px 0 20px 0;
         }
