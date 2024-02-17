@@ -12,13 +12,13 @@ const useHospitalStore = defineStore('Hospital', {
     },
     actions: {
         async getHospitalDetail(hoscode: string) {
-            let result: HospitalDetailResponseData = await reqGetHospitalDetail(hoscode)
+            const result: HospitalDetailResponseData = await reqGetHospitalDetail(hoscode)
             if (result.code === 200) {
                 this.hospitalDetail = result.data
             }
         },
         async getHospitalDepartments(hoscode: string){
-            let result:DepartmentResponseData = await reqGetDepartment(hoscode)
+            const result:DepartmentResponseData = await reqGetDepartment(hoscode)
             if(result.code===200){
                 this.hospitalDepartments = result.data
             }

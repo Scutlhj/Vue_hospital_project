@@ -17,7 +17,7 @@ const useUserStore = defineStore('User', {
             this.showLoginDialog = show
         },
         async getCode(phone:string):Promise<string>{
-            let result:CodeResponseData = await reqGetCodeByPhone(phone)
+            const result:CodeResponseData = await reqGetCodeByPhone(phone)
             if(result.code===200){
                 this.code = result.data
                 return Promise.resolve('ok')
@@ -27,7 +27,7 @@ const useUserStore = defineStore('User', {
             }
         },
         async Login(loginForm:LoginForm):Promise<string>{
-            let result:LoginResponseData = await reqPostLogin(loginForm)
+            const result:LoginResponseData = await reqPostLogin(loginForm)
             if(result.code===200){
                 this.userData = result.data
                 // localStorage.setItem('userData',JSON.stringify(result.data))
@@ -41,7 +41,7 @@ const useUserStore = defineStore('User', {
         },
         refreshLogin(){
             // 轮询获取localStorage
-            let timer = setInterval(()=>{
+            const timer = setInterval(()=>{
                 // 获取为null
                 if(GET_USERDATA()){
                     this.showLoginDialog = false
