@@ -1,6 +1,6 @@
 <template>
   <div class="login_container">
-    <el-dialog v-model="userStore.showLoginDialog" title="用户登录" width="40%" @open="cleanForm">
+    <el-dialog v-model="userStore.showLoginDialog" title="用户登录" width="680px" @open="cleanForm">
       <div class="content">
         <div class="left">
           <div class="phone_login" v-show="switchScene === 0">
