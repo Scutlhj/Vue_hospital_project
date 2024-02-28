@@ -3,8 +3,7 @@
     <div class="top">
       <div class="top_left" @click="goHome">
         <img src="../../assets/images/logo.png" alt="hospital_logo">
-        <h1 class="title">尚医通</h1>
-        <h1>预约挂号统一平台</h1>
+        <h1 class="title">预约挂号统一平台</h1>
       </div>
       <div class="top_right">
         <span class="help">帮助中心</span>
@@ -85,7 +84,7 @@ const goRouter = (path:string)=>{
       }
 
       .title {
-        margin: 0 8px;
+        margin-left: 10px;
       }
     }
 

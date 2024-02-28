@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="des">
-            <p>林灏均官方指定平台</p>
+            <p>官方指定平台</p>
             <p>快速挂号 安全放心</p>
           </div>
         </div>
@@ -234,7 +234,7 @@ watch(() => switchScene.value, (newVal: number, oldVal: number) => {
     display: flex;
 
     .left {
-      flex: 1;
+      flex: 1.2;
       padding: 20px;
       border-radius: 5px;
       border: 1px #ccc solid;

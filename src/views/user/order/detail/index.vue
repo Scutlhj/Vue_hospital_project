@@ -105,7 +105,7 @@
             </el-descriptions-item>
           </el-descriptions>
           <div class="btns">
-            <el-button class="cancel" v-if="orderDetail.orderStatus !== -1" @click="confirmCancel">取消预约</el-button>
+            <el-button class="cancel" v-if="orderDetail.orderStatus === 0 || orderDetail.orderStatus === 1" @click="confirmCancel">取消预约</el-button>
             <el-button type="primary" class="pay" v-if="orderDetail.orderStatus === 0" @click="payOrder">支付</el-button>
           </div>
         </div>

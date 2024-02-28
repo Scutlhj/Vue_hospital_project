@@ -15,6 +15,7 @@ import router from './router';
 import '@/router/permission'
 
 const app = createApp(App)
+// 注册全局组件
 app.component('HospitalTop', HospitalTop)
 app.component('HospitalBottom', HospitalBottom)
 app.component('Login',Login)
